@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Yeseva+One&display=swap");
+
+:root {
+  --primary: #514941;
+  --secondary: #f4f0ee;
+  --tertiary: #ff6938;
+  --brand: #c42217;
+}
+
+body {
+  color: var(--primary);
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  padding: 2.5rem;
+}
+
+.span-full {
+  grid-column: 1 / -1;
+}
+
+p {
+  font-weight: 400;
+}
+
+.display {
+  font-size: 3.75rem;
+  @media screen and (min-width: 768px) {
+    font-size: 8rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.625rem;
+  @media screen and (min-width: 768px) {
+    font-size: 5.6rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  @media screen and (min-width: 768px) {
+    font-size: 4.21rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  @media screen and (min-width: 768px) {
+    font-size: 3.16rem;
+  }
+}
+
+h4 {
+  font-size: 1.25rem;
+  @media screen and (min-width: 768px) {
+    font-size: 2.37rem;
+  }
+}
+
+h5 {
+  font-size: 1.125rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1.78rem;
+  }
+}
+
+h6 {
+  font-size: 1rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1.33rem;
+  }
+}
+
+p {
+  font-size: 0.9375rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
+}
