@@ -16,6 +16,9 @@ body {
 }
 
 .content {
+  &:has(.no-padding) {
+    padding: 0rem;
+  }
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem;
@@ -94,4 +97,18 @@ p {
   @media screen and (min-width: 768px) {
     font-size: 1rem;
   }
+}
+
+#hero {
+  background-image: url(../public/images/brunch-plate.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: var(--secondary);
+  grid-column: 1 / -1;
+}
+
+.no-padding {
+  padding: 0;
 }
