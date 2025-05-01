@@ -1,5 +1,5 @@
 <template>
-  <div class="group pb-0.5 flex gap-4 items-center w-fit cursor-pointer">
+  <div class="group pb-0.5 flex gap-2 items-center w-fit cursor-pointer">
     <NuxtLink :to="href" class="primary-button">
       {{ text }}
     </NuxtLink>

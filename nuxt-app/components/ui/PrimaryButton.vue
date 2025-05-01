@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group border-b border-white pb-0.5 flex gap-4 items-center w-fit cursor-pointer"
+    class="group border-b border-white pb-0.5 flex gap-2 items-center w-fit cursor-pointer"
   >
     <NuxtLink :to="href" class="primary-button">
       {{ text }}
