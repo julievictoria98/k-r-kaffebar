@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <body>
     <header class="header">
       <nav class="navbar">
         <ul class="navbar-list">
@@ -16,5 +16,5 @@
     <footer class="footer">
       <p>&copy; 2023 My Nuxt App</p>
     </footer>
-  </div>
+  </body>
 </template>

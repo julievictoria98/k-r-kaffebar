@@ -85,7 +85,8 @@ h5 {
   }
 }
 
-h6 {
+h6,
+a {
   font-size: 1rem;
   @media screen and (min-width: 768px) {
     font-size: 1.33rem;
@@ -100,13 +101,27 @@ p {
 }
 
 #hero {
-  background-image: url(../public/images/brunch-plate.png);
+  background-image: url(../public/images/store-inside.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   color: var(--secondary);
   grid-column: 1 / -1;
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
 }
 
 .no-padding {
