@@ -1,13 +1,15 @@
 <template>
-  <div class="content text-media">
+  <div class="content" :class="layout">
     <div>
       <h2>{{ title }}</h2>
       <p class="mt-1">{{ text }}</p>
-      <div class="mt-4">
+      <div class="mt-4 flex gap-8">
         <UiPrimaryButton
-          text="LÆS MERE OM DETTE"
-          href="/contact"
-        ></UiPrimaryButton>
+          v-for="(button, index) in buttons"
+          :key="index"
+          :text="button.text"
+          :href="button.href"
+        />
       </div>
     </div>
     <div class="grid grid-cols-5 max-h-[400px] h-full">
@@ -29,23 +31,24 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  title: {
-    type: String,
-    default: "Default Title",
+<script>
+export default {
+  props: {
+    title: String,
+    text: String,
+    layout: {
+      type: String,
+      default: "tm-layout-1",
+    },
+    buttons: {
+      type: Array,
+      default: () => [
+        {
+          text: "LÆS MERE OM DETTE",
+          href: "/contact",
+        },
+      ],
+    },
   },
-  text: {
-    type: String,
-    default: "Default Text",
-  },
-  buttonText: {
-    type: String,
-    default: "Default Button Text",
-  },
-  buttonLink: {
-    type: String,
-    default: "#",
-  },
-});
+};
 </script>

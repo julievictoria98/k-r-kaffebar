@@ -19,17 +19,21 @@ body {
 @mixin grid-children-cols($first-col: 1 / 7, $last-col: 7 / -1) {
   > :first-child {
     grid-column: 1 / -1;
+    grid-row: 1/2;
 
     @media screen and (min-width: 762px) {
       grid-column: #{$first-col};
+      grid-row: 1/2;
     }
   }
 
   > :last-child {
     @media screen and (min-width: 762px) {
       grid-column: #{$last-col};
+      grid-row: 1/2;
     }
     grid-column: 1 / -1;
+    grid-row: 2/3;
   }
 }
 
@@ -55,9 +59,12 @@ body {
   &:not(:has(> *#hero)) {
     min-height: 600px;
   }
+  &.tm-layout-1 {
+    @include grid-children-cols("1 / 8", "8 / -1");
+  }
 
-  &.text-media {
-    @include grid-children-cols("1 / 7", "8 / -1");
+  &.tm-layout-2 {
+    @include grid-children-cols("7 / -1", "1 / 6");
   }
 }
 
