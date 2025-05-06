@@ -16,23 +16,36 @@ body {
   font-size: 16px;
   line-height: 1.5;
 }
-@mixin grid-children-cols($first-col: 1 / 7, $last-col: 7 / -1) {
+@mixin grid-children-cols(
+  $first-col: "1 / 7",
+  $last-col: "7 / -1",
+  $title-col: "7 / -1"
+) {
   > :first-child {
-    grid-column: 1 / -1;
+    grid-column: #{$title-col};
     grid-row: 1/2;
 
     @media screen and (min-width: 762px) {
-      grid-column: #{$first-col};
+      grid-column: #{$title-col};
       grid-row: 1/2;
+    }
+  }
+  > :nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2/3;
+
+    @media screen and (min-width: 762px) {
+      grid-column: #{$first-col};
+      grid-row: 2/3;
     }
   }
 
   > :last-child {
     grid-column: 1 / -1;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
     @media screen and (min-width: 762px) {
       grid-column: #{$last-col};
-      grid-row: 1/2;
+      grid-row: 2/3;
     }
   }
 }
@@ -60,11 +73,14 @@ body {
     min-height: 600px;
   }
   &.tm-layout-1 {
-    @include grid-children-cols("1 / 8", "8 / -1");
+    @include grid-children-cols("1 / 8", "8 / -1", "1 / 8");
   }
 
   &.tm-layout-2 {
-    @include grid-children-cols("7 / -1", "1 / 6");
+    @include grid-children-cols("7 / -1", "1 / 6", "7 / -1");
+  }
+  &.tm-layout-3 {
+    @include grid-children-cols("7 / -1", "1 / 6", "1 / 8");
   }
 }
 
@@ -86,6 +102,11 @@ p {
   }
 }
 
+#accordion {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
 h2,
 h3,
 h4,
@@ -96,7 +117,8 @@ h6 {
   font-family: "Yeseva One", serif;
 }
 
-h1 {
+h1,
+.h1 {
   font-size: 2.625rem;
   font-weight: 500;
 
@@ -105,7 +127,8 @@ h1 {
   }
 }
 
-h2 {
+h2,
+.h2 {
   font-size: 2rem;
   font-weight: 400;
   @media screen and (min-width: 768px) {
@@ -113,28 +136,32 @@ h2 {
   }
 }
 
-h3 {
+h3,
+.h3 {
   font-size: 1.5rem;
   @media screen and (min-width: 768px) {
     font-size: 3.16rem;
   }
 }
 
-h4 {
+h4,
+.h4 {
   font-size: 1.25rem;
   @media screen and (min-width: 768px) {
     font-size: 2.37rem;
   }
 }
 
-h5 {
+h5,
+.h5 {
   font-size: 1.125rem;
   @media screen and (min-width: 768px) {
     font-size: 1.78rem;
   }
 }
 
-h6 {
+h6,
+.h6 {
   font-size: 1rem;
   @media screen and (min-width: 768px) {
     font-size: 1.33rem;
@@ -142,6 +169,7 @@ h6 {
 }
 
 p,
+.p,
 a {
   font-size: 0.9375rem;
   @media screen and (min-width: 768px) {

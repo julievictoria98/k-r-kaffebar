@@ -3,60 +3,36 @@
     <div
       @click="toggleAccordion"
       :class="accordionClass"
-      class="accordion-header"
+      class="flex items-center justify-between cursor-pointer p-4 border-b border-primary"
     >
-      <h2>{{ props.question }}</h2>
-      <img src="../../public/images/brown-arrow.svg" alt="brown arrow" />
+      <h3 id="accordion">{{ question }}</h3>
+      <img
+        :class="isOpen ? 'rotate-90' : 'rotate-270'"
+        src="../../public/images/brown-arrow.svg"
+        alt="brown arrow"
+      />
     </div>
-    <p v-if="isOpen">
-      {{ props.answer }}
+    <p v-if="isOpen" class="transition-all duration-300 ease-in-out p-4">
+      {{ answer }}
     </p>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
-// Linter-friendly: no destructuring
-const props = defineProps<{
-  question: string
-  answer: string
-}>()
+const props = defineProps({
+  question: String,
+  answer: String,
+});
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 
 const toggleAccordion = () => {
-  isOpen.value = !isOpen.value
-}
+  isOpen.value = !isOpen.value;
+};
 
 const accordionClass = computed(() => {
-  return isOpen.value ? 'accordion-open' : 'accordion-closed'
-})
+  return isOpen.value ? "accordion-open" : "accordion-closed";
+});
 </script>
-
-<style scoped>
-.accordion-header {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em;
-  border: 1px solid #ccc;
-  transition: background-color 0.3s ease;
-}
-
-.accordion-open {
-  background-color: #f0f0f0;
-}
-
-.accordion-closed {
-  background-color: #ffffff;
-}
-
-p {
-  padding: 1em;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
